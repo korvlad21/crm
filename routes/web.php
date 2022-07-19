@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\MainController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\News\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'index']);
 
-Route::post('/',function (){
-    return response()->json(['first_test' =>'ok']);
-});
+Route::any('post',[MainController::class, 'post']);
+
+
+?>
