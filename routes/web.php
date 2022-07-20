@@ -20,3 +20,8 @@ Route::get('/', [MainController::class, 'index']);
 Route::get('/create', [RolesController::class, 'create']);
 
 Route::get('/', [RolesController::class, 'index']);
+
+Route::get('roles/{role}', [RolesController::class, 'show']);
+Route::get('roles/1', function(){
+    dd(['test']);
+});

@@ -25,4 +25,10 @@ class RolesController extends Controller
 //        return response()->json(Role::get());
     }
 
+    public function show(Role $role)
+    {
+//
+        return response()->json(['data' => $role]);
+    }
+
 }
