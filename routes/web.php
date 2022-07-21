@@ -17,11 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'index']);
 
-Route::get('/create', [RolesController::class, 'create']);
+Route::post('roles', [RolesController::class, 'create']);
+
+Route::put('roles/{role}', [RolesController::class, 'update']);
 
 Route::get('/', [RolesController::class, 'index']);
 
-Route::get('roles/{role}', [RolesController::class, 'show']);
-Route::get('roles/1', function(){
-    dd(['test']);
-});
+//Route::get('roles/{role}', [RolesController::class, 'show']);
+//Route::get('roles/1', function(){
+//    dd(['test']);
+//});

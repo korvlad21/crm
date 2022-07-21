@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
-//        $role = new Role();
-//        $role->name='Client';
-//        $role->save();
-//        Role::insert(['name' => 'Admin']);
-        Role::create([
-           'name' => 'manager',
-        ]);
         return response()->json(true);
+    }
+
+    public function update(Request $request, Role $role)
+    {
+
+        $role->update($request->only('name'));
+        return response()->json($role);
     }
 
     public function index()
