@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
@@ -15,16 +16,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::post('login', [AuthController::class, 'login']);
+
+Route::get('logout', [AuthController::class, 'logout']);
+
+Route::middleware(['auth'])->group(function(){
+
+    
 Route::get('/', [MainController::class, 'index']);
 
-Route::post('roles', [RolesController::class, 'create']);
+    Route::get('roles', [RolesController::class, 'index'])->middleware('auth');
 
-Route::put('roles/{role}', [RolesController::class, 'update']);
+    Route::post('roles', [RolesController::class, 'create']);
 
-Route::get('/', [RolesController::class, 'index']);
+    Route::put('roles/{role}', [RolesController::class, 'update']);
 
-Route::get('roles/{role}', [RolesController::class, 'show']);
-Route::get('roles/{role}/users', [RolesController::class, 'users']);
+
+    Route::get('roles/{role}', [RolesController::class, 'show']);
+    Route::get('roles/{role}/users', [RolesController::class, 'users']);
+});
+
+
 //Route::get('roles/1', function(){
 //    dd(['test']);
 //});

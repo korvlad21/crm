@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
+    public function index()
+    {
+        return Role::get();
+    }
+
+
     public function create(Request $request)
     {
         return response()->json(true);
@@ -20,12 +32,7 @@ class RolesController extends Controller
         return response()->json($role);
     }
 
-    public function index()
-    {
-        // $role=Role::find(3)->delete();
-//        return response()->json(Role::get());
-    }
-
+    
     public function show(Role $role)
     {
 //
