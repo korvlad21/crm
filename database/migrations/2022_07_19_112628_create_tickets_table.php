@@ -17,7 +17,7 @@ class CreateTicketsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->unsignedTinyInteger('status_id')->default(0);
+            $table->unsignedTinyInteger('status')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
