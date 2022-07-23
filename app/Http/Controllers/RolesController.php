@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RolesController extends Controller
@@ -21,7 +22,7 @@ class RolesController extends Controller
 
     public function index()
     {
-        $role=Role::find(3)->delete();
+        // $role=Role::find(3)->delete();
 //        return response()->json(Role::get());
     }
 
@@ -29,6 +30,12 @@ class RolesController extends Controller
     {
 //
         return response()->json(['data' => $role]);
+    }
+
+    public function users(Role $role)
+    {
+
+        return $role->users->map->name;
     }
 
 }
