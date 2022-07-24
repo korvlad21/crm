@@ -12,7 +12,7 @@ class AuthTest extends TestCase
     
     public function testAuth()
     {
-        $password = 123456;
+        $password = '123456';
         $user = User::factory()->create(['password' => bcrypt($password)]);
         $response = $this->post('login',['email' => $user->email, 'password' => $password]);
         $response->assertStatus(200);
@@ -29,7 +29,7 @@ class AuthTest extends TestCase
 
     public function testAuthFailed()
     {
-        $password = 123456;
+        $password = '123456';
         $user = User::factory()->create(['password' => bcrypt($password)]);
         $response = $this->post('login',['email' => $user->email, 'password' => $password.'7']);
         $response->assertStatus(301);
@@ -41,7 +41,7 @@ class AuthTest extends TestCase
 
     public function testRolesAuth()
     {
-        $password = 123456;
+        $password = '123456';
         $user = User::factory()->create(['password' => bcrypt($password)]);
         $response = $this->post('login',['email' => $user->email, 'password' => $password.'7']);
         $response->assertStatus(301);

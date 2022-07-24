@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', [MainController::class, 'index']);
 
 Route::post('login', [AuthController::class, 'login']);
 
@@ -24,9 +24,9 @@ Route::get('logout', [AuthController::class, 'logout']);
 Route::middleware(['auth'])->group(function(){
 
     
-Route::get('/', [MainController::class, 'index']);
 
-    Route::get('roles', [RolesController::class, 'index'])->middleware('auth');
+
+    Route::get('roles', [RolesController::class, 'index']);
 
     Route::post('roles', [RolesController::class, 'create']);
 
