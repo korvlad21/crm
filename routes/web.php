@@ -23,7 +23,7 @@ Route::get('logout', [AuthController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function(){
     Route::get('home', [AuthController::class, 'home']);
-    Route::middleware(['roles:admin,manager'])->group(function () {
+    Route::middleware(['roles:admin'])->group(function () {
         Route::get('roles', [RolesController::class, 'index']);
         Route::post('roles', [RolesController::class, 'create']);
         Route::put('roles/{role}', [RolesController::class, 'update']);

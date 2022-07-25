@@ -18,27 +18,26 @@ class UserTest extends TestCase
             ['Admin', ['admin'], true],
             ['Admin', ['admin', 'manager'], true],
             ['Admin', ['Client', 'manager'], false],
-            ['Client', ['Client', 'manager'],  true],
+            ['Client', ['Client', 'manager'], true],
             ['Client', ['Admin', 'manager'], false],
         ];
    }
 
    /**
-    * @dataProvider dataProviderRoles
-    * @param $roleName
-    * @param $testRole
-    * @param $expectedResult
-    */
-   public function testUserHasAnyRole($roleName, $testRole, $expectedResult)
-   {
-
+     * @dataProvider dataProviderRoles
+     * @param $roleName
+     * @param $testRole
+     * @param $expectedResult
+     */
+    public function testHasAnyRole($roleName, $testRole, $expectedResult)
+    {
         $role = Role::where('name', $roleName)->first();
         $user = User::factory()->create([
             'role_id' => $role->id,
         ]);
 
         $this->assertEquals($expectedResult, $user->hasAnyRole($testRole));
-   }
+    }
 
 
 }
