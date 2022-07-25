@@ -20,18 +20,18 @@ class UserTest extends TestCase
             ['Admin', ['Client', 'manager'], false],
             ['Client', ['Client', 'manager'],  true],
             ['Client', ['Admin', 'manager'], false],
-        ]
+        ];
    }
 
    /**
-    * Undocumented function
-    *
+    * @dataProvider dataProviderRoles
     * @param $roleName
     * @param $testRole
     * @param $expectedResult
     */
    public function testUserHasAnyRole($roleName, $testRole, $expectedResult)
    {
+
         $role = Role::where('name', $roleName)->first();
         $user = User::factory()->create([
             'role_id' => $role->id,

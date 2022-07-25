@@ -54,7 +54,17 @@ class User extends Authenticatable
 
     public function hasAnyRole($roles)
     {
-        return true;
+        if (!is_array($roles)) {
+            $roles = [$roles];
+        }
+
+        foreach ($roles as $role) {
+            if (strtolower($role) === strtolower($this->role->name)) {
+                return true;
+            }
+        }
+
+        return false;
     }
-    
+
 }

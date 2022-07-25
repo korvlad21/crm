@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    
+
     public function login(LoginRequest $request)
     {
-        $credentials = $request->only('email', 'password');   
+        $credentials = $request->only('email', 'password');
 
         if(Auth::attempt($credentials))
         {
@@ -26,5 +26,9 @@ class AuthController extends Controller
         Auth::logout();
 
         return response(true);
+    }
+    public function home()
+    {
+        return response(Auth::user());
     }
 }
