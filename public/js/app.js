@@ -2066,7 +2066,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Home"
+  name: "Home",
+  data: function data() {
+    return {
+      title: 'Crm HelpDesc',
+      users: ['Alex', 'Dima', 'Roma'],
+      user: {
+        name: 'First name',
+        last_name: 'Last name'
+      },
+      name: null
+    };
+  },
+  methods: {
+    addUser: function addUser() {
+      this.users.push(this.name);
+      this.clearName();
+    },
+    clearName: function clearName() {
+      this.name = null;
+    }
+  }
 });
 
 /***/ }),
@@ -2087,7 +2107,54 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("h1", [_vm._v("\n    CRM Helpdesc\n")]);
+  return _c("div", [_c("h1", [_vm._v("\n        " + _vm._s(_vm.title) + "\n    ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.title,
+      expression: "title"
+    }],
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.title
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.title = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("ul", _vm._l(_vm.users, function (user) {
+    return _c("li", [_vm._v(_vm._s(user))]);
+  }), 0), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.name,
+      expression: "name"
+    }],
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.name = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("button", {
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.addUser
+    }
+  }, [_vm._v("Add")]), _vm._v(" "), _c("div", [_c("h2", [_vm._v(_vm._s(_vm.user.name))]), _vm._v(" "), _c("h2", [_vm._v(_vm._s(_vm.user.last_name))])])]);
 };
 
 var staticRenderFns = [];
