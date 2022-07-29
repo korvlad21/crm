@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h1>
+        <h2>
             {{title}}
-        </h1>
-        <User></User>
+        </h2>
+        <user-card v-for="(user,index) in users" :user="user" text="some text" v-bind:key="index"/>
 
     </div>
 </template>
@@ -14,12 +14,12 @@
     export default {
         name: "Home",
         components: {
-          User,
+          'user-card': User,
         },
         data(){
             return{
                 title:'Crm HelpDesc',
-                user: [
+                users: [
                     {
                     name:'Roman',
                     last_name: 'Davydov',

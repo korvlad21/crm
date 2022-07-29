@@ -1,17 +1,19 @@
 <template>
     <div>
-        <h2>{{user.name}}</h2>
-        <h2>{{user.last_name}}</h2>
+        <h2>{{user.name}} {{user.last_name}}</h2>
+        <p>{{text}}</p>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['user'],
+        props: ['user', 'text'],
         name: "User"
     }
 </script>
 
 <style scoped>
-
+h2{
+    color: red;
+}
 </style>
