@@ -3,7 +3,13 @@
         <h2>
             {{title}}
         </h2>
-        <user-card v-for="(user,index) in users" :user="user" text="some text" v-bind:key="index"/>
+        <user-card
+            v-for="(user,index) in users"
+            :user="user"
+            text="some text"
+            v-bind:key="index"
+
+        />
 
     </div>
 </template>
@@ -23,14 +29,28 @@
                     {
                     name:'Roman',
                     last_name: 'Davydov',
+                    role: 'admin'
                     },
                     {
                         name:'Dmitriy',
                         last_name: 'Ivanov',
-                    },{
+                        role: 'manager'
+                    },
+                    {
                         name:'Alex',
                         last_name: 'Petrov',
-                    }
+                        role: 'client'
+                    },
+                    {
+                        name:'Ivan',
+                        last_name: 'Sidorov',
+                        role: 'client'
+                    },
+                    {
+                        name:'Fedor',
+                        last_name: 'Sidorov',
+                        role: 'manager'
+                    },
                 ],
                 name: null
             }

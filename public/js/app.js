@@ -2077,13 +2077,24 @@ __webpack_require__.r(__webpack_exports__);
       title: 'Crm HelpDesc',
       users: [{
         name: 'Roman',
-        last_name: 'Davydov'
+        last_name: 'Davydov',
+        role: 'admin'
       }, {
         name: 'Dmitriy',
-        last_name: 'Ivanov'
+        last_name: 'Ivanov',
+        role: 'manager'
       }, {
         name: 'Alex',
-        last_name: 'Petrov'
+        last_name: 'Petrov',
+        role: 'client'
+      }, {
+        name: 'Ivan',
+        last_name: 'Sidorov',
+        role: 'client'
+      }, {
+        name: 'Fedor',
+        last_name: 'Sidorov',
+        role: 'manager'
       }],
       name: null
     };
@@ -2114,7 +2125,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user', 'text'],
-  name: "User"
+  name: "User",
+  methods: {
+    getClass: function getClass(role) {
+      return 'top-' + role;
+    }
+  }
 });
 
 /***/ }),
@@ -2168,7 +2184,9 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h2", [_vm._v(_vm._s(_vm.user.name) + " " + _vm._s(_vm.user.last_name))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.text))])]);
+  return _c("div", [_c("h2", {
+    "class": _vm.getClass(_vm.user.role)
+  }, [_vm._v(_vm._s(_vm.user.name) + " " + _vm._s(_vm.user.last_name))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.text))]), _vm._v(" "), _vm.user.role === "client" ? [_c("small", [_vm._v(_vm._s(_vm.user.role))])] : [_c("p", [_vm._v(_vm._s(_vm.user.role))])]], 2);
 };
 
 var staticRenderFns = [];
@@ -2244,7 +2262,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh2[data-v-67086f1d]{\n    color: red;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.top-admin[data-v-67086f1d]{\n    color: green;\n}\n.top-manager[data-v-67086f1d]{\n    color: blue;\n}\n.top-client[data-v-67086f1d]{\n    color: red;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
