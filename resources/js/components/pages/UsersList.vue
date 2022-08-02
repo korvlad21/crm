@@ -1,37 +1,34 @@
 <template>
     <div>
-        <ul>
-            <li>
-                <router-link to="/users">Users List</router-link>
-            </li>
-            <li>
-                <router-link to="/admin">Admin</router-link>
-            </li>
-        </ul>
+        <h2>
+            {{title}}
+        </h2>
+        <user-card
+            v-for="(user,index) in users"
+            :user="user"
+            text="some text"
+            v-bind:key="index"
 
+        />
 
-        <router-view/>
     </div>
-
-
 </template>
 
 <script>
-    import User from './users/User';
-
+    import User from '../users/User.vue';
     export default {
-        name: "Home",
+        name: "UsersList",
         components: {
-          'user-card': User,
+            'user-card': User,
         },
         data(){
             return{
                 title:'Crm HelpDesc',
                 users: [
                     {
-                    name:'Roman',
-                    last_name: 'Davydov',
-                    role: 'admin'
+                        name:'Roman',
+                        last_name: 'Davydov',
+                        role: 'admin'
                     },
                     {
                         name:'Dmitriy',
@@ -57,15 +54,6 @@
                 name: null
             }
         },
-        methods:{
-            addUser(){
-                this.users.push(this.name);
-                this.clearName();
-            },
-            clearName(){
-                this.name = null;
-            }
-        }
     }
 </script>
 
