@@ -4,7 +4,7 @@ import AdminPage from "./components/pages/AdminPage";
 
 const routes = [
     {path: '/users', component:UsersList},
-    {path: '/users/:name', component:UsersPage},
+    {path: '/users/:id', component:UsersPage},
     {path: '/admin', component:AdminPage},
 ];
 

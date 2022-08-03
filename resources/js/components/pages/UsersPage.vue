@@ -1,8 +1,7 @@
 <template>
     <div>
-        <h1>
-            User name: {{userName}}
-        </h1>
+            <h1>User name: {{user.name}}</h1>
+            <h2>User name: {{user.email}}</h2>
     </div>
 </template>
 
@@ -11,11 +10,15 @@
         name: "UsersPage",
         data(){
             return {
-                userName:null,
+                userId: null,
+                user:{}
             }
         },
-        mounted(){
-          this.userName=this.$route.params.name;
+        async mounted(){
+            this.userid = this.$route.params.id;
+            let result = await axios.get('/users/'+this.userid);
+            this.user = result.data;
+
         },
     }
 </script>

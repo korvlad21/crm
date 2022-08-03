@@ -15,6 +15,17 @@ class MainController extends Controller
 
     public function users()
     {
-        return User::get();
+        return User::get()->map(function (User $user){
+            return[
+                'id' => $user->id,
+                'name' => $user->name,
+                'role' => $user->role->name,
+            ];
+        });
+    }
+
+    public function user($id)
+    {
+        return User::find($id)->only('name', 'email');
     }
 }

@@ -25,34 +25,14 @@
             return{
                 title:'Crm HelpDesc',
                 users: [
-                    {
-                        name:'Roman',
-                        last_name: 'Davydov',
-                        role: 'admin'
-                    },
-                    {
-                        name:'Dmitriy',
-                        last_name: 'Ivanov',
-                        role: 'manager'
-                    },
-                    {
-                        name:'Alex',
-                        last_name: 'Petrov',
-                        role: 'client'
-                    },
-                    {
-                        name:'Ivan',
-                        last_name: 'Sidorov',
-                        role: 'client'
-                    },
-                    {
-                        name:'Fedor',
-                        last_name: 'Sidorov',
-                        role: 'manager'
-                    },
                 ],
-                name: null
+
             }
+        },
+        async mounted(){
+            let result = await axios.get('/users');
+            this.users = result.data
+            // axios.get('/users').then(result => this.users = result.data)
         },
     }
 </script>
