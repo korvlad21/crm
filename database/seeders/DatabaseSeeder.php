@@ -17,8 +17,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RolesSeeder::class,
+
         ]);
-         
-       
+        User::factory(15)->create();
     }
+
+
 }

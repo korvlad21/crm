@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,8 +13,8 @@ class MainController extends Controller
         return view('welcome');
     }
 
-    public function post()
+    public function users()
     {
-        return response()->json(['first_test' =>'ok'],404);
+        return User::get();
     }
 }
